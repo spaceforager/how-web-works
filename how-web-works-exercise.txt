@@ -1,0 +1,75 @@
+Part One: Solidify Terminology
+In your own terms, define the following terms:
+
+What is HTTP?
+-> HTTP establishes a structured set of expectations when data is set or received between a client and a server. 
+
+What is a URL?
+-> URL stands for Uniform Resource Locator. It provides an address for some internet resource.
+
+What is DNS?
+-> DNS stands for Domain Name System. It acts as a phonebook. It is a system that takes URLs and converts them into their corresponding IP addresses. 
+
+What is a query string?
+
+-> The query string includes key-value pairs passed to the URL. Query provides "extra information" -- search terms, info from forms, etc.
+	The server is provided this info; might use to change page.
+	Sometimes, JS will use this information in addition/instead
+
+What are two HTTP verbs and how are they different?
+
+-> GET: requests without side effects (i.e. don't change server data). We are simply trying to get information. Not changing anything or saving data. 
+
+
+		-> Typically, arguments are passed along in query string.
+			-If you know the arguments, you can change the url
+
+		Entering-URL-in-browser, clicking links, and some form submissions. 
+
+
+
+
+	POST: requests with side effects(i.e. change data on server)
+
+		-> Typically, arguments sent as body of the request(not in query string)
+		-> Some form submissions(but never entering URL-in-browser or clicking links)
+		-> Always do this if there's a side-effect: sending mail, charge credit card, etc. 
+
+What is an HTTP request?
+
+-> An HTTP request is a request sent by the client to a server which follows the HTTP protocol. An example: requesting HTML from developer.mozilla.org. The request contains the following:
+    -Method (ex. GET)
+	-HTTP protocol version (almost always 1.1)
+	-Resource URL you want
+	-Headers 
+		-Hostname you're asking about
+		-Date your browser thinks it is
+		- Language your browser wants info in
+		- Any cookies that server has sent
+		-Many more
+    
+What is an HTTP response?
+
+-> An HTTP response is a response from the server to the client which follows the HTTP protocol. example: when a website sends back HTML/CSS/JS. A response typically contains the following:
+    -HTTP Protocol version (almost always 1.1)
+	-Response status code(200, 404, etc)
+	-Headers
+		-Content type(typically text/html for web pages)
+		-Date/time the server thinks it is.
+		-Any cookies server wants to set.
+		-Any caching information. 
+		And MORE!
+
+What is an HTTP header? Give a couple examples of request and response headers you have seen.
+
+    -> Headers provide additional information about the request or the response. Here are some examples:
+    -> Request headers: Host, User-Agent, Accept, Cookie, Cache-Control
+    -> Response headers: Content-Type, Last-Modified, Set-Cookie, Cache-Control
+
+What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+
+-> Your browser “resolves” the name into an IP address using DNS
+-> Your browser makes a request to that IP address, including headers (info about browser, any previous cookies, and other things)
+-> The server sends a response (typically, HTML, with a status code (200 if it was successful)
+-> The browser makes a DOM from that HTML, and finds any other resources needed (images, CSS, JavaScript, etc)
+-> The browser makes separate HTTP requests for those resources and receives response from the server for each
